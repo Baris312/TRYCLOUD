@@ -15,6 +15,7 @@ public class Login
                 WebElement passwordBox= driver.findElement(By.name("password"));
                 WebElement loginButton = driver.findElement(By.id("submit-form"));
 
+                Wait.Wait(6);
 
                 userBox.sendKeys("User19");
                 passwordBox.sendKeys("Userpass123");
