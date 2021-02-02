@@ -1,0 +1,26 @@
+package Utilities;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+
+public class Login
+    {
+        public static void LoginSetup(WebDriver driver)
+            {
+
+                driver.get("http://qa.trycloud.net/index.php/login?clear=1");
+                // driver.findElement()
+                WebElement userBox=  driver.findElement(By.name("user"));
+                WebElement passwordBox= driver.findElement(By.name("password"));
+                WebElement loginButton = driver.findElement(By.id("submit-form"));
+
+
+                userBox.sendKeys("User19");
+                passwordBox.sendKeys("Userpass123");
+                loginButton.click();
+
+            }
+
+
+    }
