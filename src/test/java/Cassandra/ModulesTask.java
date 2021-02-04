@@ -33,13 +33,16 @@ public class ModulesTask {
         WebElement deck = driver.findElement(By.id("deck"));
         WebElement announcements = driver.findElement(By.id("announcementcenter"));
 
-       ArrayList<String> modules = new ArrayList<String>(Arrays.asList("files,activity, gallery, talk, calendar, deck, announcements"));
+    /*   WebElement<> modules = new ArrayList<String>(Arrays.asList(files,activity, gallery, talk, calendar, deck, announcements));
 
         String isDisplayed = "";
        for (String each : modules) {
-         //  Assert.assertTrue(each.isDisplayed());
+           Assert.assertTrue(each.isDisplayed());
+           System.out.println(each + " is Displayed!!");
 
        }
+
+     */
 
 
 
