@@ -37,7 +37,7 @@ public class ModulesTask {
      List<WebElement> modules = new ArrayList<>();
           modules.addAll(Arrays.asList(files,activity, gallery, talk, calendar, deck, announcements));
 
-        String isDisplayed = "";
+
        for (WebElement each : modules) {
            Assert.assertTrue(each.isDisplayed());
            System.out.println(each + " is Displayed!!");
