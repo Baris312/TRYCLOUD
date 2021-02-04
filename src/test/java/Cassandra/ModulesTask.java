@@ -26,16 +26,20 @@ public class ModulesTask {
         LoginSetup(driver);
         Wait.Wait(3);
 
-        WebElement files = driver.findElement(By.id("files"));
-        WebElement activity = driver.findElement(By.id("activities"));
-        WebElement gallery = driver.findElement(By.id("gallery"));
-        WebElement talk = driver.findElement(By.id("spreed"));
-        WebElement calendar = driver.findElement(By.id("calendar"));
-        WebElement deck = driver.findElement(By.id("deck"));
-        WebElement announcements = driver.findElement(By.id("announcementcenter"));
+        WebElement files = driver.findElement(By.xpath("//ul[@id= 'appmenu']//li[2]"));
+        WebElement photos = driver.findElement(By.xpath("//ul[@id= 'appmenu']//li[3]"));
+        WebElement activity = driver.findElement(By.xpath("//ul[@id= 'appmenu']//li[4]"));
+        WebElement talk = driver.findElement(By.xpath("//ul[@id='appmenu']//li[5]"));
+        WebElement mail = driver.findElement(By.xpath("//ul[@id= 'appmenu']//li[6]"));
+        WebElement contacts = driver.findElement(By.xpath("//ul[@id= 'appmenu']//li[7]"));
+        WebElement circles = driver.findElement(By.xpath("//ul[@id= 'appmenu']//li[8]"));
+        WebElement calendar = driver.findElement(By.xpath("//ul[@id= 'appmenu']//li[9]"));
+        WebElement deck = driver.findElement(By.xpath("//ul[@id= 'appmenu']//li[10]"));
+
 
      List<WebElement> modules = new ArrayList<>();
-          modules.addAll(Arrays.asList(files,activity, gallery, talk, calendar, deck, announcements));
+          modules.addAll(Arrays.asList(files, photos, activity, talk, mail, contacts, circles,
+                  calendar, deck));
 
 
        for (WebElement each : modules) {
