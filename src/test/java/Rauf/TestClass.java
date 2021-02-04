@@ -12,7 +12,7 @@ public class TestClass {
     @Test
     public static void talks_module() {
 
-        Driver.getDriver();
+
         WebDriver driver=Driver.getDriver();
         Login.LoginSetup(driver);
         Wait.Wait(2);
