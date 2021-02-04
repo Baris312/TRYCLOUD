@@ -10,6 +10,7 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 import static Utilities.Login.LoginSetup;
 
@@ -33,16 +34,17 @@ public class ModulesTask {
         WebElement deck = driver.findElement(By.id("deck"));
         WebElement announcements = driver.findElement(By.id("announcementcenter"));
 
-    /*   WebElement<> modules = new ArrayList<String>(Arrays.asList(files,activity, gallery, talk, calendar, deck, announcements));
+     List<WebElement> modules = new ArrayList<>();
+          modules.addAll(Arrays.asList(files,activity, gallery, talk, calendar, deck, announcements));
 
         String isDisplayed = "";
-       for (String each : modules) {
+       for (WebElement each : modules) {
            Assert.assertTrue(each.isDisplayed());
            System.out.println(each + " is Displayed!!");
 
        }
 
-     */
+
 
 
 
