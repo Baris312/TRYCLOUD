@@ -1,8 +1,22 @@
 package Rauf;
 
-public class TestClass {
-    public static void main(String[] args) {
+import Baris.LoginTask1;
+import Utilities.Driver;
+import Utilities.Login;
+import Utilities.Wait;
+import org.openqa.selenium.WebDriver;
+import org.testng.annotations.Test;
 
-        System.out.println("Hello");
+public class TestClass {
+
+    @Test
+    public static void talks_module() {
+
+        Driver.getDriver();
+        WebDriver driver=Driver.getDriver();
+        Login.LoginSetup(driver);
+        Wait.Wait(2);
+
+
     }
 }
