@@ -61,7 +61,7 @@ public void Logintest()
 
         //1. Navigate to login page http://qa.trycloud.net/index.php/login?clear=1
 
-        driver.get("http://qa.trycloud.net/index.php/login?clear=1");
+        driver.get("http://qa3.trycloud.net/");
 
         String loginPageUrl =  driver.getCurrentUrl();
         //2. username box locator
@@ -94,7 +94,7 @@ public void Logintest()
        public void testLoginUrl(){
 
     // 6-  Verify the URL is changed to homepage’s url
-    String expectedUrl ="http://qa.trycloud.net/index";
+    String expectedUrl ="http://qa3.trycloud.net/index.php";
     String actualUrl = Driver.getDriver().getCurrentUrl();
 
     Assert.assertTrue(actualUrl.contains(expectedUrl));
@@ -110,7 +110,7 @@ public void Logintest()
 @AfterClass
   public void afterClass()
     {
-      Driver.closeDriver();
+     // Driver.closeDriver();
 
     }
     }
