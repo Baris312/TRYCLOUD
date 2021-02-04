@@ -9,7 +9,7 @@ public class Login
         public static void LoginSetup(WebDriver driver)
             {
 
-                driver.get("http://qa.trycloud.net/index.php/login?clear=1");
+                driver.get("http://qa3.trycloud.net/");
                 // driver.findElement()
                 WebElement userBox=  driver.findElement(By.name("user"));
                 WebElement passwordBox= driver.findElement(By.name("password"));
