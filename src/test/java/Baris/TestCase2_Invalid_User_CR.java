@@ -33,7 +33,7 @@ public void inValidCredential()
 
         driver.get("http://qa.trycloud.net/index.php/login?clear=1");
 
-        String loginPageUrl =  driver.getCurrentUrl();
+        String loginPageUrl = "http://qa.trycloud.net/index.php/login?";
         //2. username box locator
         WebElement userBox=  driver.findElement(By.name("user"));
 
@@ -63,7 +63,7 @@ public void inValidCredential()
         String actualUrl =  driver.getCurrentUrl();
 
         //5. Verify the URL is changed
-          Assert.assertEquals(loginPageUrl,actualUrl);
+          Assert.assertTrue(actualUrl.contains(loginPageUrl),"Wrong Url displayed");
 
 
     }
