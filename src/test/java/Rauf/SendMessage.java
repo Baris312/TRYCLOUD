@@ -16,7 +16,7 @@ public class SendMessage {
 
 
         // Test case #2 - verify users can send message
-        // 1. Login as a user
+        // 1 Login as a user
 
         WebDriver driver = Driver.getDriver();
         Login.LoginSetup(driver);
