@@ -99,9 +99,27 @@ public void Logintest()
 
     Assert.assertTrue(actualUrl.contains(expectedUrl));
 
+
+
        }
 
+@Test
+public void ThanksCas()
+    {
+        WebElement setStatusLink = Driver.getDriver().findElement(By.xpath("//*[@id=\"status-status\"]"));
+        setStatusLink.click();
+        Wait.Wait(1);
 
+        WebElement textLink = Driver.getDriver().findElement(By.xpath("//*[@id=\"body-user\"]/div[6]/div[2]/div/div/div[4]/form/input"));
+        textLink.sendKeys("Thank you CASSANDRA !!");
+
+    Wait.Wait(2);
+
+    WebElement sendtextlink = Driver.getDriver().findElement(By.xpath("//*[@id=\"body-user\"]/div[6]/div[2]/div/div/div[7]/button[2]"));
+    sendtextlink.click();
+
+
+    }
 
 
 
