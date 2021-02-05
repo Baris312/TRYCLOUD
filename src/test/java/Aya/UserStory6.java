@@ -2,6 +2,7 @@ package Aya;
 
 import Utilities.Driver;
 import Utilities.Wait;
+import com.google.common.base.Verify;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -29,6 +30,7 @@ public class UserStory6 {
         deckModule.click();
         Wait.Wait(5);
 
+        //3. Verify the page tile/URL is Notes module’s tile
         String actualTitle = driver.getTitle();
         String expectedTitle = "Deck - Trycloud QA";
         Assert.assertEquals(actualTitle, expectedTitle, "Wrong URL title");
@@ -37,7 +39,7 @@ public class UserStory6 {
 
 
 
-       // Driver.closeDriver();
+       Driver.closeDriver();
 
 
     }

@@ -15,10 +15,8 @@ public class UserStory6case2 {
 
     @Test
     public void TestCase2() throws InterruptedException {
-        //Test case #1 - verify users can access to Talks module
+        //Test case #2 - verify users can send notes in the page
         //1. Login as a user
-        //2. Click “Notes” module
-        //3. Verify the page title/URL is Notes module’s title
 
         WebDriver driver = Driver.getDriver();
         LoginSetup(driver);
@@ -33,24 +31,29 @@ public class UserStory6case2 {
         WebElement navigation = driver.findElement(By.xpath("//*[@id=\"app-navigation-vue\"]/a"));
         navigation.click();
 
-        Thread.sleep(7000);
+        Thread.sleep(3000);
 
-        //driver.findElement(By.xpath("//*[@id=\"app-navigation-vue\"]/ul/li[2]/a/span")).sendKeys("newNote"+Keys.ENTER);
 
-        WebElement addNote = driver.findElement(By.xpath("/html/body/div[3]/div/ul/div/form/input[1]"));
-        addNote.click();
+        //3. Click “New Note” button
+        WebElement addBoard = driver.findElement(By.xpath("//*[@id=\"app-navigation-vue\"]/ul/li[3]/a/span"));
+        addBoard.click();
 
-        ///*[@id="app-navigation-vue"]/ul/li[3]/a/span
+        //4. Write a message/Note
+        WebElement addBoardName = driver.findElement(By.xpath("//*[@id=\"app-navigation-vue\"]/ul/div/form/input[1]"));
         Wait.Wait(2);
 
-        addNote.sendKeys("newNote"+Keys.ENTER);
-
-
-
+        addBoardName.sendKeys("NEW message"+Keys.ENTER);
         Wait.Wait(2);
 
+        //5. Verify the note is added on the note list
+        WebElement message = driver.findElement(By.xpath("//*[@id=\"app-navigation-vue\"]/ul/li[2]/ul"));
 
-        // Driver.closeDriver();
+        Assert.assertTrue(message.isDisplayed());
+        System.err.println(message + " is Displayed!!");
+
+
+
+        Driver.closeDriver();
 
     }
 }
