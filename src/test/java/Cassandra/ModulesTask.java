@@ -103,6 +103,7 @@ public class ModulesTask {
         Wait.Wait(2);
         System.out.println(deckText.getText() );
 
+        Wait.Wait(2);
         Driver.closeDriver();
 
 
