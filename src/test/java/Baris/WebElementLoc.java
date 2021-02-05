@@ -2,6 +2,7 @@ package Baris;
 
 import Utilities.Driver;
 import Utilities.Login;
+import Utilities.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -15,7 +16,7 @@ public class WebElementLoc
 
 
         @Test
-     public void loc()
+     public void loc() throws InterruptedException
             {
                 WebDriver driver = Driver.getDriver();
                 LoginSetup(driver);
@@ -23,6 +24,9 @@ public class WebElementLoc
                 WebElement file= driver.findElement(By.xpath("//ul[@id= 'appmenu']//li[2]"));
 
                 Assert.assertTrue(file.isDisplayed());
+
+
+
             }
     }
 
