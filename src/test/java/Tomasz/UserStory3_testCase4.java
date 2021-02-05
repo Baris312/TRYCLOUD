@@ -40,7 +40,7 @@ public class UserStory3_testCase4 {
         String actualResult = emptyFavorites.getText();
         Assert.assertEquals(actualResult, expectedResult, "Favorites is not empty");
 
-
+        driver.close();
 
 
 
