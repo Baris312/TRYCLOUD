@@ -52,14 +52,20 @@ public class ModulesTask {
        }
 
         Actions actions = new Actions(Driver.getDriver());
-       for(WebElement each1 : modules){
-           actions.moveToElement(each1).perform();
-           Assert.assertTrue(each1.isDisplayed(), "Module is displayed! ");
-           Wait.Wait(2);
-       }
+//       for(WebElement each1 : modules){
+//           actions.moveToElement(each1).perform();
+//           Assert.assertTrue(each1.isDisplayed(), "Module is displayed! ");
+//           Wait.Wait(2);
+//       }
 
 
-       Driver.closeDriver();
+        WebElement dashbordText = driver.findElement(By.xpath("//*[@id=\"appmenu\"]/li[1]/a/span"));
+
+       actions.moveToElement(dashboard).perform();
+       Wait.Wait(2);
+        System.out.println( dashbordText.getText() );
+
+      // Driver.closeDriver();
 
 
 
