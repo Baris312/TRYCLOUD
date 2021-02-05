@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static Utilities.Login.LoginSetup;
@@ -53,8 +54,9 @@ public class userStory3_testCase3 {
 
         // 4.Click “Favorites” sub-module on the lest side
 
-        //Locate the “Favorites” sub-module on the lest side
-        WebElement subModuleFavorites = driver.findElement(By.xpath("//ul [@id=‘app-navigation’]/ul/li[3]"));
+        //Locate the “Favorites” sub-module on the left side
+        WebElement subModuleFavorites = driver.findElement(By.xpath("//*[@id='app-navigation']/ul/li[3]/a"));
+        //*[@id="app-navigation"]/ul/li[3]/a
 
         //Click “Favorites” sub-module on the lest side:
         subModuleFavorites.click();
@@ -64,15 +66,23 @@ public class userStory3_testCase3 {
         // 5.Verify the chosen file is listed on the table
         // (Pre-condition: there should be at least 1 file is uploaded)
 
+        //Boolean Assertion:
 
 
 
+        //Assert.assertEquals(actualResult, expectedResult, "File is not listed in Favorites");
 
 
 
+        Wait.Wait(3);
 
 
 
+        //Driver.closeDriver();
+//WebElement favoritesFile = driver.findElement(By.xpath("//*[@id='fileList']/tr/td[1]/a"));
+
+        //Click “Favorites” sub-module on the lest side:
+        //favoritesFile.click();
 
     }
 
