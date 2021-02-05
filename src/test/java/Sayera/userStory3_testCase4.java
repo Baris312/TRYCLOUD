@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static Utilities.Login.LoginSetup;
@@ -64,6 +65,22 @@ public class userStory3_testCase4 {
         subModuleFavorites.click();
 
         Wait.Wait(1);
+
+
+
+        WebElement emptyFavorites = driver.findElement(By.xpath("//*[@id='emptycontent']/h2"));
+        String expectedResult = "No favorites yet";
+        String actualResult = emptyFavorites.getText();
+
+        Assert.assertEquals(actualResult, expectedResult, "Favorites is not empty");
+
+
+
+        Wait.Wait(3);
+
+
+        Driver.closeDriver();
+
 
 
 
