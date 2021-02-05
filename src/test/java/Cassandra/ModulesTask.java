@@ -54,7 +54,7 @@ public class ModulesTask {
         Actions actions = new Actions(Driver.getDriver());
        for(WebElement each1 : modules){
            actions.moveToElement(each1).perform();
-           Assert.assertTrue(each1.isDisplayed(), "Module is displayed! ");
+           Assert.assertTrue(each1.isDisplayed(), "Module is displayed!");
            Wait.Wait(2);
        }
 
@@ -62,7 +62,7 @@ public class ModulesTask {
        Driver.closeDriver();
 
 
-
+// not sure if i need another step for actual and expected
 
 
         }
