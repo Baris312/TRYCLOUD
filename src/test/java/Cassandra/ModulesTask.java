@@ -2,7 +2,7 @@ package Cassandra;
 
 import Utilities.Driver;
 import Utilities.Wait;
-import com.sun.corba.se.impl.encoding.CodeSetConversion;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -52,20 +52,59 @@ public class ModulesTask {
        }
 
         Actions actions = new Actions(Driver.getDriver());
-//       for(WebElement each1 : modules){
-//           actions.moveToElement(each1).perform();
-//           Assert.assertTrue(each1.isDisplayed(), "Module is displayed! ");
-//           Wait.Wait(2);
-//       }
 
+        WebElement dashboardText = driver.findElement(By.xpath("//*[@id=\"appmenu\"]/li[1]/a/span"));
+        actions.moveToElement(dashboard).perform();
+        Wait.Wait(2);
+        System.out.println(dashboardText.getText() );
 
-        WebElement dashbordText = driver.findElement(By.xpath("//*[@id=\"appmenu\"]/li[1]/a/span"));
+        WebElement filesText = driver.findElement(By.xpath("/html/body/header/div[1]/ul/li[2]/a/span"));
+        actions.moveToElement(filesText).perform();
+        Wait.Wait(2);
+        System.out.println(filesText.getText() );
 
-       actions.moveToElement(dashboard).perform();
-       Wait.Wait(2);
-        System.out.println( dashbordText.getText() );
+        WebElement photosText = driver.findElement(By.xpath("//*[@id=\"appmenu\"]/li[3]/a/span"));
+        actions.moveToElement(photosText).perform();
+        Wait.Wait(2);
+        System.out.println(photosText.getText() );
 
-      // Driver.closeDriver();
+        WebElement activityText = driver.findElement(By.xpath("//*[@id=\"appmenu\"]/li[4]/a/span"));
+        actions.moveToElement(activityText).perform();
+        Wait.Wait(2);
+        System.out.println(activityText.getText() );
+
+        WebElement talkText = driver.findElement(By.xpath("//*[@id=\"appmenu\"]/li[5]/a/span"));
+        actions.moveToElement(talkText).perform();
+        Wait.Wait(2);
+        System.out.println(talkText.getText() );
+
+        WebElement mailText = driver.findElement(By.xpath("//*[@id=\"appmenu\"]/li[6]/a/span"));
+        actions.moveToElement(mailText).perform();
+        Wait.Wait(2);
+        System.out.println(mailText.getText() );
+
+        WebElement contactsText = driver.findElement(By.xpath("//*[@id=\"appmenu\"]/li[7]/a/span"));
+        actions.moveToElement(contactsText).perform();
+        Wait.Wait(2);
+        System.out.println(contactsText.getText() );
+
+        WebElement circlesText = driver.findElement(By.xpath("//*[@id=\"appmenu\"]/li[8]/a/span"));
+        actions.moveToElement(circlesText).perform();
+        Wait.Wait(2);
+        System.out.println(circlesText.getText() );
+
+        WebElement calendarText = driver.findElement(By.xpath("//*[@id=\"appmenu\"]/li[9]/a/span"));
+        actions.moveToElement(calendarText).perform();
+        Wait.Wait(2);
+        System.out.println(calendarText.getText() );
+
+        WebElement deckText = driver.findElement(By.xpath("//*[@id=\"appmenu\"]/li[10]/a/span"));
+        actions.moveToElement(deckText).perform();
+        Wait.Wait(2);
+        System.out.println(deckText.getText() );
+
+        Wait.Wait(2);
+        Driver.closeDriver();
 
 
 
