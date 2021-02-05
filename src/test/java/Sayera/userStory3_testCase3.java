@@ -43,6 +43,9 @@ public class userStory3_testCase3 {
 
         Wait.Wait(1);
 
+        //Pre-condition: file has to be un-selected from favorites sub-module
+
+
         // 3.Choose “Add to Favorites” option
         //Locate the Add to favorites (bubble menu)option on web page:
         WebElement addFavoritesLocator = driver.findElement(By.xpath("//*[@id=\"fileList\"]/tr[1]/td[2]/div/ul/li[3]/a/span[2]"));
@@ -66,23 +69,21 @@ public class userStory3_testCase3 {
         // 5.Verify the chosen file is listed on the table
         // (Pre-condition: there should be at least 1 file is uploaded)
 
-        //Boolean Assertion:
+        //Assertion:
 
+        WebElement fileList = driver.findElement(By.xpath("//*[@id='fileList']/tr/td[1]/a/span[1]/span"));
+        String expectedResult = "Talk";
+        String actualResult = fileList.getText();
 
-
-        //Assert.assertEquals(actualResult, expectedResult, "File is not listed in Favorites");
+        Assert.assertEquals(actualResult, expectedResult, "File is not found");
 
 
 
         Wait.Wait(3);
 
 
-//hhh
-        //Driver.closeDriver();
-//WebElement favoritesFile = driver.findElement(By.xpath("//*[@id='fileList']/tr/td[1]/a"));
+        Driver.closeDriver();
 
-        //Click “Favorites” sub-module on the lest side:
-        //favoritesFile.click();
 
     }
 
