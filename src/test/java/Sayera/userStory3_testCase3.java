@@ -88,11 +88,4 @@ public class userStory3_testCase3 {
 
     }
 
-    //Story: As a user, I should be able to access to Files module
-
-
-
-
-
-
     }
