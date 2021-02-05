@@ -38,6 +38,7 @@ public class UserStory3_testCase5 {
         WebElement  pictureFile = driver.findElement(By.xpath("//*[@id='fileList']/tr[1]/td[2]/a/span[1]/span[1]"));
         Assert.assertTrue(pictureFile.isDisplayed());
 
+
         driver.close();
 
     }
