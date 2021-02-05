@@ -2,7 +2,7 @@ package Cassandra;
 
 import Utilities.Driver;
 import Utilities.Wait;
-import com.sun.corba.se.impl.encoding.CodeSetConversion;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -52,17 +52,23 @@ public class ModulesTask {
        }
 
         Actions actions = new Actions(Driver.getDriver());
-       for(WebElement each1 : modules){
-           actions.moveToElement(each1).perform();
-           Assert.assertTrue(each1.isDisplayed(), "Module is displayed!");
-           Wait.Wait(2);
-       }
+//       for(WebElement each1 : modules){
+//           actions.moveToElement(each1).perform();
+//           Assert.assertTrue(each1.isDisplayed(), "Module is displayed! ");
+//           Wait.Wait(2);
+//       }
 
 
-       Driver.closeDriver();
+        WebElement dashbordText = driver.findElement(By.xpath("//*[@id=\"appmenu\"]/li[1]/a/span"));
+
+       actions.moveToElement(dashboard).perform();
+       Wait.Wait(2);
+        System.out.println( dashbordText.getText() );
+
+      // Driver.closeDriver();
 
 
-// not sure if i need another step for actual and expected
+
 
 
         }
