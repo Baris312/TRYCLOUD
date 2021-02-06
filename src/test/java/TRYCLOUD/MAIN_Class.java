@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.testng.Assert;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
@@ -27,11 +28,11 @@ public static  void  UserLogin()
 
 
       LoginSetup(driver);
-        Wait.Wait(7);
+        Wait.Wait(3);
 
     }
         @Test
-        public void A_mainModules(){
+            public void A_mainModules(){
 
             // 1.Login as a user
             WebDriver driver = Driver.getDriver();
@@ -123,56 +124,56 @@ public static  void  UserLogin()
 
 }
 
-        public void B_ThanksCas()
-            {
-                WebElement setStatusLink = Driver.getDriver().findElement(By.xpath("//*[@id=\"status-status\"]"));
-                setStatusLink.click();
-                Wait.Wait(1);
+                         public void B_ThanksCas() {
+                            WebElement setStatusLink = Driver.getDriver().findElement(By.xpath("//*[@id=\"status-status\"]"));
+                            setStatusLink.click();
+                            Wait.Wait(1);
 
-                WebElement textLink = Driver.getDriver().findElement(By.xpath("//*[@id=\"body-user\"]/div[6]/div[2]/div/div/div[4]/form/input"));
-                textLink.sendKeys("Thank you CASSANDRA !!");
+                            WebElement textLink = Driver.getDriver().findElement(By.xpath("//*[@id=\"body-user\"]/div[6]/div[2]/div/div/div[4]/form/input"));
+                            textLink.sendKeys("Thank you CASSANDRA !!");
 
-                Wait.Wait(2);
+                            Wait.Wait(2);
 
-                WebElement sendtextlink = Driver.getDriver().findElement(By.xpath("//*[@id=\"body-user\"]/div[6]/div[2]/div/div/div[7]/button[2]"));
-                sendtextlink.click();
+                            WebElement sendtextlink = Driver.getDriver().findElement(By.xpath("//*[@id=\"body-user\"]/div[6]/div[2]/div/div/div[7]/button[2]"));
+                            sendtextlink.click();
 
 
-            }
+                        }
+
 
         // Test case3_3 && TestCase3_4
         @Test
-        public void TestCase3_3()
-            {
+           public void TestCase3_3()
+                {
 
-                //User Story #3 : As a user, I should be able to access to Files module
-                // Test Case #3 :
+                    //User Story #3 : As a user, I should be able to access to Files module
+                    // Test Case #3 :
 
-                // 1.Login as a user
-
-
-
-                Wait.Wait(1);
-                try
-                    {
-                        runTest3();
-                    }catch (RuntimeException e)
-                    {
-                        runTest3();
-                    }
-
-                try
-                    {
-                        TestCase3_4();
-                    }catch (RuntimeException e)
-                    {
-                        TestCase3_4();
-                    }
+                    // 1.Login as a user
 
 
-            }
-            // Test case3_3 && TestCase3_4
-             public void runTest3()
+
+                    Wait.Wait(1);
+                    try
+                        {
+                            runTest3();
+                        }catch (RuntimeException e)
+                        {
+                            runTest3();
+                        }
+
+                    try
+                        {
+                            TestCase3_4();
+                        }catch (RuntimeException e)
+                        {
+                            TestCase3_4();
+                        }
+
+
+                }
+                // Test case3_3 && TestCase3_4
+                  public void runTest3()
                  {
                      WebDriver driver = Driver.getDriver();
                      //Locate Files module on the web page:
@@ -231,8 +232,8 @@ public static  void  UserLogin()
                      driver.get("http://qa3.trycloud.net/index.php/apps/dashboard/");
                  }
 
-             public void TestCase3_4()
-            {
+                 public void TestCase3_4()
+                 {
 
                 //User Story #3 : As a user, I should be able to access to Files module
                 //Test case #4 - verify users can remove a file from favorites
@@ -296,75 +297,78 @@ public static  void  UserLogin()
             }
 
         @Test
-        public void TestCase3_5() {
+           public void TestCase3_5() {
 
-            WebDriver driver = Driver.getDriver();
+                    WebDriver driver = Driver.getDriver();
 
-            LoginSetup(driver);
+                    LoginSetup(driver);
 
-            Wait.Wait(2);
+                    Wait.Wait(2);
 
-            WebElement filesIcon = driver.findElement(By.xpath("//a[@href='/index.php/apps/files/']"));
-            filesIcon.click();
-            Wait.Wait(2);
+                    WebElement filesIcon = driver.findElement(By.xpath("//a[@href='/index.php/apps/files/']"));
+                    filesIcon.click();
+                    Wait.Wait(2);
 
-            WebElement  plusIcon = driver.findElement(By.xpath("//*[@id='controls']/div[2]/a"));
-            plusIcon.click();
-            Wait.Wait(2);
+                    WebElement  plusIcon = driver.findElement(By.xpath("//*[@id='controls']/div[2]/a"));
+                    plusIcon.click();
+                    Wait.Wait(2);
 
-            WebElement  uploadFile = driver.findElement(By.xpath("//*[@id='controls']/div[2]/div[2]/ul/li[1]/label"));
-            uploadFile.click();
-            Wait.Wait(2);
+                    WebElement  uploadFile = driver.findElement(By.xpath("//*[@id='controls']/div[2]/div[2]/ul/li[1]/label"));
+                    uploadFile.click();
+                    Wait.Wait(2);
 
-            WebElement  pictureFile = driver.findElement(By.xpath("//*[@id='fileList']/tr[1]/td[2]/a/span[1]/span[1]"));
-            Assert.assertTrue(pictureFile.isDisplayed());
+                    WebElement  pictureFile = driver.findElement(By.xpath("//*[@id='fileList']/tr[1]/td[2]/a/span[1]/span[1]"));
+                    Assert.assertTrue(pictureFile.isDisplayed());
 
-            Wait.Wait(2);
-            driver.get("http://qa3.trycloud.net/index.php/apps/dashboard/");
-
-
-
-        }
-
-            @Test
-           public void TestCase4()
-            {
-
-                // Test case #2 - verify users can send message
-                // 1 Login as a user
-
-                WebDriver driver = Driver.getDriver();
+                    Wait.Wait(2);
+                    driver.get("http://qa3.trycloud.net/index.php/apps/dashboard/");
 
 
 
+                }
 
-                // 2. Click Talks module
-                WebElement talks = Driver.getDriver().findElement(By.xpath("//li[@data-id='spreed'][1]"));
-                talks.click();
-                //3. Search a user from search box on the left
-                Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys("marufjon");
-                WebElement user = Driver.getDriver().findElement(By.xpath("//span[@class='acli__content__line-one__title']"));
-                user.click();
-                //4. Write a message
-                WebElement message = Driver.getDriver().findElement(By.xpath("//div[@role='textbox']"));
-                message.sendKeys("Hello Muhtar");
+        @Test
+           public void TestCase4() {
 
-                //5. Click submit button
-                WebElement submit = Driver.getDriver().findElement(By.xpath("//button[@type='submit']"));
-                submit.click();
+                    // Test case #2 - verify users can send message
+                    // 1 Login as a user
 
-                //6. Verify the message is displayed on the conversation log
-                String actualResult = Driver.getDriver().findElement(By.xpath("(//div[@class='messages'])[2]")).getText();
-                String expectedResult = "Hello Muhtar";
-                Assert.assertTrue(actualResult.contains(expectedResult));
-                System.out.println(actualResult);
+                    WebDriver driver = Driver.getDriver();
 
-                Wait.Wait(2);
-                driver.get("http://qa3.trycloud.net/index.php/apps/dashboard/");
 
+
+
+                    // 2. Click Talks module
+                    WebElement talks = Driver.getDriver().findElement(By.xpath("//li[@data-id='spreed'][1]"));
+                    talks.click();
+                    //3. Search a user from search box on the left
+                    Driver.getDriver().findElement(By.xpath("//input[@type='text']")).sendKeys("marufjon");
+                    WebElement user = Driver.getDriver().findElement(By.xpath("//span[@class='acli__content__line-one__title']"));
+                    user.click();
+                    //4. Write a message
+                    WebElement message = Driver.getDriver().findElement(By.xpath("//div[@role='textbox']"));
+                    message.sendKeys("Hello Muhtar");
+
+                    //5. Click submit button
+                    WebElement submit = Driver.getDriver().findElement(By.xpath("//button[@type='submit']"));
+                    submit.click();
+
+                    //6. Verify the message is displayed on the conversation log
+                    String actualResult = Driver.getDriver().findElement(By.xpath("(//div[@class='messages'])[2]")).getText();
+                    String expectedResult = "Hello Muhtar";
+                    Assert.assertTrue(actualResult.contains(expectedResult));
+                    System.out.println(actualResult);
+
+                    Wait.Wait(2);
+                    driver.get("http://qa3.trycloud.net/index.php/apps/dashboard/");
+
+                }
+
+
+        @AfterClass
+        public void ThreadDown() {
+                Wait.Wait(1);
+                Driver.getDriver().quit();
             }
-
-
-
 
         }
