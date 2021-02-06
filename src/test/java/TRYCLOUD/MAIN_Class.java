@@ -4,6 +4,7 @@ import Utilities.Driver;
 import Utilities.Login;
 import Utilities.Wait;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -364,8 +365,65 @@ public static  void  UserLogin()
 
                 }
 
+        @Test
+            public void TestCase6() throws InterruptedException {
 
-        @AfterClass
+                WebDriver driver = Driver.getDriver();
+                Wait.Wait(1);
+
+                //2. Click “Notes” module
+                WebElement deckModule = driver.findElement(By.xpath("//ul[@id= 'appmenu']//li[10]"));
+
+                deckModule.click();
+                Wait.Wait(5);
+
+                //3. Verify the page tile/URL is Notes module’s tile
+                String actualTitle = driver.getTitle();
+                String expectedTitle = "Deck - Trycloud QA";
+                Assert.assertEquals(actualTitle, expectedTitle, "Wrong URL title");
+
+                Wait.Wait(2);
+               driver.get("http://qa3.trycloud.net/index.php/apps/dashboard/");
+
+                Thread.sleep(3000);
+
+                driver.findElement(By.xpath("//ul[@id= 'appmenu']//li[10]")).click();
+                Wait.Wait(5);
+
+                WebElement navigation = driver.findElement(By.xpath("//*[@id=\"app-navigation-vue\"]/a"));
+                navigation.click();
+
+                Wait.Wait(2);
+
+
+                //3. Click “New Note” button
+                WebElement addBoard = driver.findElement(By.xpath("//*[@id=\"app-navigation-vue\"]/ul/li[3]/a/span"));
+                addBoard.click();
+
+                //4. Write a message/Note
+                WebElement addBoardName = driver.findElement(By.xpath("//*[@id=\"app-navigation-vue\"]/ul/div/form/input[1]"));
+                Wait.Wait(2);
+
+                addBoardName.sendKeys("NEW message"+ Keys.ENTER);
+                Wait.Wait(2);
+
+                //5. Verify the note is added on the note list
+                WebElement message = driver.findElement(By.xpath("//*[@id=\"app-navigation-vue\"]/ul/li[2]/ul"));
+
+                Assert.assertTrue(message.isDisplayed());
+                System.err.println(message + " is Displayed!!");
+
+
+                Wait.Wait(2);
+                driver.get("http://qa3.trycloud.net/index.php/apps/dashboard/");
+
+            }
+
+
+
+
+
+            @AfterClass
         public void ThreadDown() {
                 Wait.Wait(1);
                 Driver.getDriver().quit();
