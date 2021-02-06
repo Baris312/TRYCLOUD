@@ -59,7 +59,7 @@ public class userStory3_testCase4 {
         // (Pre-condition: there should be at least 1 file is added to favorites table)
 
         //Locate the “Favorites” sub-module on the lest side
-        WebElement subModuleFavorites = driver.findElement(By.xpath("//ul [@id=‘app-navigation’]/ul/li[3]"));
+        WebElement subModuleFavorites = driver.findElement(By.xpath("//ul [@id='app-navigation']/ul/li[3]"));
 
         //Click “Favorites” sub-module on the lest side:
         subModuleFavorites.click();
