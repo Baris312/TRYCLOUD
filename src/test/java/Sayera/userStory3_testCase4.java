@@ -18,7 +18,9 @@ public class userStory3_testCase4 {
     public void TestCase3() {
 
         //User Story #3 : As a user, I should be able to access to Files module
-        //Test case #4 - verify users can remove a file from favorites
+        //Test case #4 - verify users
+        // c
+        // an remove a file from favorites
 
         // 1.Login as a user
         WebDriver driver = Driver.getDriver();
