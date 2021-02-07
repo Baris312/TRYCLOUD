@@ -31,6 +31,7 @@ public class TalkModule {
         // 2. Click Talks module
        WebElement talks= Driver.getDriver().findElement(By.xpath("//li[@data-id='spreed'][1]"));
        talks.click();
+
         //  3. Verify the page tile is Talks module’s tile
         WebElement modulesTile= Driver.getDriver().findElement(By.xpath("//input[@type='text']"));
          modulesTile.isDisplayed();
