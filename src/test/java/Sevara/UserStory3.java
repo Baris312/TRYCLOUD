@@ -43,7 +43,7 @@ public class UserStory3 {
         checkbox.click();
         Wait.Wait(3);
 
-        //3. Assert all the files are selected
+        //3. Assert all the files are selected1
 
     }
 }
