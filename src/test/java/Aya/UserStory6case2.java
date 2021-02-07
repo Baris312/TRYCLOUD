@@ -53,7 +53,7 @@ public class UserStory6case2 {
 
 
 
-        Driver.closeDriver();
+        //Driver.closeDriver();
 
     }
 }
