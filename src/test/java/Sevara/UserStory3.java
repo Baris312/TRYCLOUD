@@ -32,8 +32,18 @@ public class UserStory3 {
         filesModule.click();
         Wait.Wait(3);
 
+
+        //========================================================================
+
         //TestCase #2
-        //1. Login in as a user
+        //1. Login as a user
+        //2. Click the top left checkbox of the table
+        //Pre-condition: there should be at least 2 files are uploaded the page
+        //3. Assert all the files are selected1
+
+
+        //1. Login as a user - in order to concatenate 2 test cases I skiped that step
+
 
         //2. Click the top left checkbox of the table
         //Pre-condition: there should be at least 2 files are uploaded the page
