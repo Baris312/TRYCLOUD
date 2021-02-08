@@ -54,7 +54,51 @@ public class Story3case10 {
         //actions.dragAndDrop(File, uploadFile).perform();
 
 
+/*
+public class UploadFile {
+    public static void main(String[] args) throws InterruptedException {
+​
+​
+        Driver.getDriver();
+        Login.LoginSetup(Driver.getDriver());
+​
+​
+        WebElement files = Driver.getDriver().findElement(By.xpath("(//a[@aria-label='Files'])[1]"));
+        files.click();
+​
+        WebElement icon = Driver.getDriver().findElement(By.xpath("//span[@class='icon icon-add']"));
+        icon.click();
+        String path = "C:\\Users\\Owner\\Desktop\\Capture.PNG";
+        WebElement upload = Driver.getDriver().findElement(By.xpath("//label[@for='file_upload_start']"));
+        upload.click();
+​
+​
+        StringSelection ss = new StringSelection(path);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(ss, null);
+        Robot robot = null;
+        try {
+            robot = new Robot();
+        } catch (AWTException e) {
+            e.printStackTrace();
+        }
+        robot.delay(250);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+        robot.keyPress(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_V);
+        robot.keyRelease(KeyEvent.VK_CONTROL);
+        robot.keyPress(KeyEvent.VK_ENTER);
+        robot.delay(90);
+        robot.keyRelease(KeyEvent.VK_ENTER);
+        Wait.Wait(3);
 
+        Driver.getDriver().navigate().refresh();
+​
+    }
+​
+}
+ */
 
 
 
