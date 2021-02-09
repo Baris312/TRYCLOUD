@@ -102,7 +102,7 @@ public void Logintest()
 
 
        }
-
+/*
 @Test
 public void ThanksCas()
     {
@@ -120,7 +120,7 @@ public void ThanksCas()
 
 
     }
-
+*/
 
 
 

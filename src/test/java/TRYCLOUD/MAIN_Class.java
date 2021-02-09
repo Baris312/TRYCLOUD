@@ -3,6 +3,7 @@ package TRYCLOUD;
 import Utilities.Driver;
 import Utilities.Login;
 import Utilities.Wait;
+import com.github.javafaker.Faker;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -124,8 +125,8 @@ public static  void  UserLogin()
 
 
 }
-
-                         public void B_ThanksCas() {
+        @Test
+        public void B_ThanksCas() {
                             WebElement setStatusLink = Driver.getDriver().findElement(By.xpath("//*[@id=\"status-status\"]"));
                             setStatusLink.click();
                             Wait.Wait(1);
@@ -137,7 +138,7 @@ public static  void  UserLogin()
 
                             WebElement sendtextlink = Driver.getDriver().findElement(By.xpath("//*[@id=\"body-user\"]/div[6]/div[2]/div/div/div[7]/button[2]"));
                             sendtextlink.click();
-
+                            Driver.getDriver().get("http://qa3.trycloud.net/index.php/apps/dashboard/");
 
                         }
 
@@ -297,36 +298,36 @@ public static  void  UserLogin()
 
             }
 
-        @Test
-           public void TestCase3_5() {
-
-                    WebDriver driver = Driver.getDriver();
-
-                    LoginSetup(driver);
-
-                    Wait.Wait(2);
-
-                    WebElement filesIcon = driver.findElement(By.xpath("//a[@href='/index.php/apps/files/']"));
-                    filesIcon.click();
-                    Wait.Wait(2);
-
-                    WebElement  plusIcon = driver.findElement(By.xpath("//*[@id='controls']/div[2]/a"));
-                    plusIcon.click();
-                    Wait.Wait(2);
-
-                    WebElement  uploadFile = driver.findElement(By.xpath("//*[@id='controls']/div[2]/div[2]/ul/li[1]/label"));
-                    uploadFile.click();
-                    Wait.Wait(2);
-
-                    WebElement  pictureFile = driver.findElement(By.xpath("//*[@id='fileList']/tr[1]/td[2]/a/span[1]/span[1]"));
-                    Assert.assertTrue(pictureFile.isDisplayed());
-
-                    Wait.Wait(2);
-                    driver.get("http://qa3.trycloud.net/index.php/apps/dashboard/");
-
-
-
-                }
+//        @Test
+//           public void TestCase3_5() {
+//
+//                    WebDriver driver = Driver.getDriver();
+//
+//                    LoginSetup(driver);
+//
+//                    Wait.Wait(2);
+//
+//                    WebElement filesIcon = driver.findElement(By.xpath("//a[@href='/index.php/apps/files/']"));
+//                    filesIcon.click();
+//                    Wait.Wait(2);
+//
+//                    WebElement  plusIcon = driver.findElement(By.xpath("//*[@id='controls']/div[2]/a"));
+//                    plusIcon.click();
+//                    Wait.Wait(2);
+//
+//                    WebElement  uploadFile = driver.findElement(By.xpath("//*[@id='controls']/div[2]/div[2]/ul/li[1]/label"));
+//                    uploadFile.click();
+//                    Wait.Wait(2);
+//
+//                    WebElement  pictureFile = driver.findElement(By.xpath("//*[@id='fileList']/tr[1]/td[2]/a/span[1]/span[1]"));
+//                    Assert.assertTrue(pictureFile.isDisplayed());
+//
+//                    Wait.Wait(2);
+//                    driver.get("http://qa3.trycloud.net/index.php/apps/dashboard/");
+//
+//
+//
+//                }
 
         @Test
            public void TestCase4() {
@@ -364,6 +365,113 @@ public static  void  UserLogin()
                     driver.get("http://qa3.trycloud.net/index.php/apps/dashboard/");
 
                 }
+
+
+        @Test
+        public void TestCase5() {// Thanks Rauf for your help
+
+            WebDriver driver = Driver.getDriver();
+
+            Wait.Wait(2);
+
+            // user story: access to contact list and verify the contact names are in the list
+
+            //click contact list
+            WebElement contactList = driver.findElement(By.xpath("//div[@class='icon-contacts menutoggle']"));
+            contactList.click();
+
+            List<WebElement> contactListNames = driver.findElements(By.xpath("//div[@class='full-name']"));
+
+            String names = "";
+            int numberOfNames = 0;
+            boolean isDisplayed = false;
+
+            for (WebElement eachName : contactListNames) {
+
+                isDisplayed = eachName.isDisplayed();
+                numberOfNames = contactListNames.size();
+                names += eachName.getText() + " , ";
+
+            }
+            System.out.println("All names are in the list= " + isDisplayed);
+            System.out.println("Names are= " + names);
+
+            System.out.println("Size of list= " + contactListNames.size());
+
+
+        }
+
+        @Test
+        public void TestCase5_1() {
+            //login
+            WebDriver driver = Driver.getDriver();
+            Wait.Wait(2);
+
+            // click on contact module
+            WebElement contact = driver.findElement(By.xpath("//a[@aria-label='Contacts']"));
+            contact.click();
+            String expectedTitle = "Contacts - Trycloud QA";
+            String actualTitle = driver.getTitle();
+            Assert.assertTrue(actualTitle.equals(expectedTitle));
+
+            System.out.println("Expected Title= " + expectedTitle);
+            System.out.println("Actual Title= " + actualTitle);
+            Wait.Wait(2);
+
+            // user can see and click new contacts
+            WebElement newContact = driver.findElement(By.id("new-contact-button"));
+            newContact.click();
+
+            // fill out name
+            Faker faker = new Faker();
+            WebElement name = driver.findElement(By.id("contact-org"));
+            name.sendKeys(faker.name().fullName());
+
+            WebElement title = driver.findElement(By.id("contact-title"));
+            title.sendKeys(faker.job().title());
+
+            // fill out phone box
+            WebElement phone = driver.findElement(By.xpath("//input[@inputmode='tel']"));
+            phone.sendKeys(faker.phoneNumber().cellPhone());
+
+            // fill out email box
+            WebElement email = driver.findElement(By.xpath("//input[@inputmode='email']"));
+            email.sendKeys(faker.address().secondaryAddress());
+
+
+            // fill out post office box
+            WebElement postOfficeBox = driver.findElement(By.xpath("// input[@class='property__value']"));
+            postOfficeBox.sendKeys(faker.address().zipCode());
+
+            // fill out address box
+            WebElement address = driver.findElement(By.xpath("//div[@class='property__row'][3]/input"));
+            address.sendKeys(faker.address().fullAddress());
+
+            //fill out extended address box
+            WebElement extendedAddress = driver.findElement(By.xpath("//div[@class='property__row'][4]/input"));
+            extendedAddress.sendKeys(faker.address().secondaryAddress());
+
+            // fill out postal code box
+            WebElement postalCodeBox = driver.findElement(By.xpath("//div[@class='property__row'][5]/input"));
+            postalCodeBox.sendKeys(faker.code().asin());
+
+            // fill out city box
+            WebElement city = driver.findElement(By.xpath("//div[@class='property__row'][6]/input"));
+            city.sendKeys(faker.address().cityName());
+
+            // fill out state box
+            WebElement state = driver.findElement(By.xpath("//div[@class='property__row'][7]/input"));
+            state.sendKeys(faker.address().state());
+
+            // fill out country box
+            WebElement country = driver.findElement(By.xpath("//div[@class='property__row'][8]/input"));
+            country.sendKeys(faker.address().country());
+
+            // verify contact name is on the list
+            WebElement nameOnList = driver.findElement(By.xpath("//div[@class='app-content-list-item-line-one']"));
+            nameOnList.isDisplayed();
+
+        }
 
         @Test
             public void TestCase6() throws InterruptedException {
@@ -420,6 +528,37 @@ public static  void  UserLogin()
             }
 
 
+        @Test
+            public void TestCase7() throws InterruptedException
+            {
+
+    WebDriver driver = Driver.getDriver();
+
+    //# found selector of search icon
+    WebElement SearchIcon = driver.findElement(By.xpath("//*[@id=\"header\"]/div[2]/div[1]/a/span"));
+
+    //# click the seach icon on home page
+    SearchIcon.click();
+
+    //# click the search box that had expanded opened after clicking the search Icon
+    driver.findElement(By.xpath("//*[@id=\"header-menu-unified-search\"]/div[2]/div[1]/form/input")).click();
+
+    //# send the "text2" in the search box
+    driver.findElement(By.xpath("//*[@id=\"header-menu-unified-search\"]/div[2]/div[1]/form/input")).sendKeys("test2");
+                Thread.sleep(2000);
+    //# find selector about "text2" that is already displayed,  After we write the "text2"
+    WebElement Test2Display = driver.findElement(By.xpath("//*[@id=\"header-menu-unified-search\"]/div[2]/ul/li[1]/a/span/h3/span/strong"));
+
+    // wait 1 min
+   Thread.sleep(2000);
+
+    //# Is "text2" displayed or not when we write the "text2"
+        Assert.assertTrue(Test2Display.isDisplayed(), "Test2 Is not found!!");
+
+
+            driver.get("http://qa3.trycloud.net/index.php/apps/dashboard/");
+
+}
 
 
 
