@@ -6,6 +6,7 @@ import Utilities.Wait;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static Utilities.Login.LoginSetup;
@@ -50,9 +51,12 @@ public class TestCase3_8 {
         //4.Click deleted files on the left bottom corner
         WebElement leftCornerDeletedButton = driver.findElement(By.xpath("//*[@id=\"app-navigation\"]/ul/li[7]/a"));
         leftCornerDeletedButton.click();
+        Wait.Wait(2);
 
         // 5.Verify the deleted file is displayed no the page.
-
+        WebElement deletedTalk = driver.findElement(By.xpath("//*[@id=\"fileList\"]/tr[7]/td[2]/a/span[1]"));
+        Assert.assertTrue(deletedTalk.isDisplayed());
+        System.err.println(deletedTalk + " is in the Deleted file");
 
 
 
